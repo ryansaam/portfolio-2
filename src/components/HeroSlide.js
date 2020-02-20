@@ -2,10 +2,11 @@ import React, { useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import water from '../assets/images/jumping-water.jpg'
+import BioContent from './BioContent.js'
 
 const HeroWrap = styled.section`
   width: 100%;
-  height: 300vh;
+  height: 225vh;
 `
 const Sticky = styled.div`
   background-image: url(${water});
@@ -23,14 +24,16 @@ const H1 = styled.h1`
   letter-spacing: 4px;
   opacity: ${props => props.op || 1};
 `
-const Zoom = styled.section.attrs(props => ({
+const Bio = styled.section.attrs(props => ({
   style: {
     transform: `scale(${props.scale})`
   }
 }))`
-  background-color: pink;
+  background-color: #000;
   width: 100%;
   height: 100%;
+  border: 20px solid #1E1E1E;
+  box-sizing: border-box;
 `
 const BioWrap = styled.div`
   width: 100%;
@@ -50,15 +53,18 @@ const Hero = props => {
     setComputedScale(props.scrollPos * 0.001)
   }, [props.scrollPos])
 
-  console.log(computedScale)
   return (
     <HeroWrap>
       <Sticky>
-        <H1>RYAN'S PORTFOLIO</H1>
-        <H1 em="1.5" op="0.8" >Designed by Ryan Sam in Houston</H1>
-        <H1 em="1" op="0.7">Inspired by Apple</H1>
+        <header style={{padding: "20px 30px"}}>
+          <H1>RYAN'S PORTFOLIO</H1>
+          <H1 em="1.5" op="0.8" >Designed by Ryan Sam in Houston</H1>
+          <H1 em="1" op="0.7">Inspired by Apple</H1>
+        </header>
         <BioWrap>
-          <Zoom ref={scaleRef} scale={computedScale >= 1 ? 1 : computedScale} />
+          <Bio ref={scaleRef} scale={computedScale >= 1 ? 1 : computedScale}>
+            <BioContent/>
+          </Bio>
         </BioWrap>
       </Sticky>
     </HeroWrap>

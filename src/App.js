@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react'
 import './App.css'
 import styled from 'styled-components'
-
+import { useSelector } from 'react-redux'
 import Hero from './components/HeroSlide.js'
+import DesignContent from './components/DesignContent.js'
+import store from './store.js'
+import { updateScroll } from './actions'
 
 const ContactBar = styled.div`
   background-color: #414141;
@@ -41,25 +44,29 @@ const Button = styled.button`
     opacity: 1;
   }
 `
-const PinkSection = styled.div`
-  background-color: blue;
-  width: 100%;
-  height: 100%;
-`
+// const DesignSection = styled.div`
+//   background-color: blue;
+//   width: 100%;
+//   height: 100%;
+// `
 
 function App() {
   const scrollRef = useRef(null)
-  const [scrollPos, setScrollPos] = useState(0)
+  const scrollY = useSelector(state => state.scrollY)
 
+  const handleScroll = () => {
+    store.dispatch(updateScroll(scrollRef.current.scrollTop))
+  }
+  
   return (
     <div className="App">
       <ContactBar>
         <Button style={{backgroundColor: "#F9F9F9", color: "black"}} >Contact</Button>
       </ContactBar>
       <Main>
-        <ScrollWrap ref={scrollRef} onScroll={() => setScrollPos(scrollRef.current.scrollTop)}>
-          <Hero scrollPos={scrollPos}></Hero>
-          <PinkSection/>
+        <ScrollWrap ref={scrollRef} onScroll={handleScroll}>
+          <Hero scrollPos={scrollY} />
+          <DesignContent />
         </ScrollWrap>
       </Main>
     </div>
