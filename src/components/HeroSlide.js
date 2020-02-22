@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import water from '../assets/images/jumping-water.jpg'
 import BioContent from './BioContent.js'
-import Slide from './Slide.js'
+import { Slide, H1 } from './Styled.js'
 
 const HeroWrap = styled.section`
   width: 100%;
@@ -18,19 +18,18 @@ const Sticky = styled.div`
   position: sticky;
   top: 0px;
 `
-const H1 = styled.h1`
-  color: white;
-  margin: 0px;
-  font-size: ${props => props.em || 4}em;
-  font-weight: 600;
-  letter-spacing: 4px;
-  opacity: ${props => props.op || 1};
-`
 const BioWrap = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
+`
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 `
 
 const Hero = props => {
@@ -51,7 +50,9 @@ const Hero = props => {
         </header>
         <BioWrap>
           <Slide ref={scaleRef} scale={computedScale >= 1 ? 1 : computedScale}>
-            <BioContent/>
+            <Container>
+              <BioContent/>
+            </Container>
           </Slide>
         </BioWrap>
       </Sticky>

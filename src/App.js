@@ -7,6 +7,7 @@ import { updateScroll } from './actions.js'
 import Hero from './components/HeroSlide.js'
 import DesignContent from './components/DesignContent.js'
 import Project from './components/Project.js'
+import { Button } from './components/Styled.js'
 
 const ContactBar = styled.div`
   background-color: #414141;
@@ -28,23 +29,6 @@ const ScrollWrap = styled.div`
   position: absolute;
   overflow: scroll;
 `
-const Button = styled.button`
-  background-color: "#5D378F";
-  color: "white";
-  width: 160px;
-  height: 40px;
-  font-size: 1em;
-  font-weight: 600;
-  letter-spacing: 2px;
-  justify-self: right;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  opacity: 0.9;
-  :hover {
-    opacity: 1;
-  }
-`
 
 function App() {
   const scrollRef = useRef(null)
@@ -57,14 +41,14 @@ function App() {
   return (
     <div className="App">
       <ContactBar>
-        <Button style={{backgroundColor: "#F9F9F9", color: "black"}} >Contact</Button>
+        <Button style={{backgroundColor: "#F9F9F9", color: "black"}} move={"right"}>Contact</Button>
       </ContactBar>
       <Main>
         <ScrollWrap ref={scrollRef} onScroll={handleScroll}>
           <div style={{ hieght: "100%", zIndex: "5", position: "relative"}}>
             <Hero scrollPos={scrollY} />
           </div>
-          <div style={{backgroundColor: "blue", height: "100%", position: "relative", overflow: "visible"}}>
+          <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "4"}}>
             <Project />
           </div>
           <DesignContent />
