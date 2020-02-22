@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { Slide, H1, Button } from './Styled.js'
 import litphumVideo from '../assets/playback-media/litphum-demo.mp4'
 import logo from '../assets/images/litphum-logo.png'
-import store from '../store.js'
 
 const ProjectWrap = styled.div`
   height: 200%;
@@ -35,14 +34,14 @@ const Project = props => {
         setReject(!reject)
       }
     }
-  }, [scrollY])
+  }, [scrollY, reject])
 
   return (
     <ProjectWrap>
       <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >
         <Container ref={containerRef} >
           <H1 em={2.8}>Featured Project</H1>
-          <img style={{width: "200px"}} src={logo} />
+          <img alt={"logo for project"} style={{width: "200px"}} src={logo} />
           <video ref={videoRef} style={{width: "50%"}} muted loop src={litphumVideo} />
           <div style={{width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr", gridGap: "20px"}}>
             <Button move={"right"}>Github</Button>

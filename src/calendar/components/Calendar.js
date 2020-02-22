@@ -51,7 +51,7 @@ const Calendar = props => {
     if (!props.width) {
       setWidth(document.getElementById("calendar-root").offsetWidth)
     }
-  },[])
+  },[props.width])
 
   return (
     <div id="calendar-root" className="calendar" style={{backgroundColor: props.colors.background, width: width+"px"}}>

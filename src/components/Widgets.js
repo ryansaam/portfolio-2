@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Slide, H1, Button } from './Styled.js'
-import { Scheduler, MyForm, colorTheme, formStyles, calendarStyles } from '../scheduler'
+import { Scheduler, MyForm, colorTheme } from '../scheduler'
 import { Calendar } from '../calendar'
 
 

@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import store from './store.js'
 import { updateScroll } from './actions.js'
+import _ from 'lodash'
 import Hero from './components/HeroSlide.js'
 import DesignContent from './components/DesignContent.js'
+import DesignTitle from './components/DesignTitle.js'
 import Project from './components/Project.js'
 import Widgets from './components/Widgets.js'
 import { Button } from './components/Styled.js'
@@ -35,9 +37,9 @@ function App() {
   const scrollRef = useRef(null)
   const scrollY = useSelector(state => state.scrollY)
 
-  const handleScroll = () => {
-    store.dispatch(updateScroll(scrollRef.current.scrollTop))     
-  }
+  const handleScroll = _.throttle(() => {
+    store.dispatch(updateScroll(scrollRef.current.scrollTop))
+  }, 50)
   
   return (
     <div className="App">
@@ -46,14 +48,17 @@ function App() {
       </ContactBar>
       <Main>
         <ScrollWrap ref={scrollRef} onScroll={handleScroll}>
-          <div style={{ hieght: "100%", zIndex: "5", position: "relative"}}>
+          <div style={{ hieght: "100%", position: "relative", zIndex: "5"}}>
             <Hero scrollPos={scrollY} />
           </div>
           <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "4"}}>
             <Project />
           </div>
-          <div style={{height: "100%", position: "relative", overflow: "visible"}}>
+          <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "3"}}>
             <Widgets />
+          </div>
+          <div style={{height: "100%", position: "sticky", top: "0px", overflow: "visible", zIndex: "2"}}>
+            <DesignTitle />
           </div>
           <DesignContent />
         </ScrollWrap>

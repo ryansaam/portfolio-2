@@ -51,14 +51,13 @@ const ParallaxVideo = props => {
   }
 
   useEffect(() => {
-    const offset = heightRef.current.offsetTop
+    const offset = heightRef.current.getBoundingClientRect().top
     store.dispatch(updateParallaxOffset(offset))
     scrollAnimation()
-    console.log("hit")
   },[])
 
   return (
-    <div 
+    <div
       style={{height: scrollHeight}}
       ref={heightRef}
     >
