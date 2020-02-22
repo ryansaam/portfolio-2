@@ -7,6 +7,7 @@ import { updateScroll } from './actions.js'
 import Hero from './components/HeroSlide.js'
 import DesignContent from './components/DesignContent.js'
 import Project from './components/Project.js'
+import Widgets from './components/Widgets.js'
 import { Button } from './components/Styled.js'
 
 const ContactBar = styled.div`
@@ -50,6 +51,9 @@ function App() {
           </div>
           <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "4"}}>
             <Project />
+          </div>
+          <div style={{height: "100%", position: "relative", overflow: "visible"}}>
+            <Widgets />
           </div>
           <DesignContent />
         </ScrollWrap>
