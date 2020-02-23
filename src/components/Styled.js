@@ -13,7 +13,8 @@ export const Slide = styled.section.attrs(props => ({
 `
 export const H1 = styled.h1`
   color: white;
-  margin: 0px;
+  margin: ${props => props.center ? "auto" : "0px"};
+  text-align: ${props => props.center ? "center" : "left"};
   font-size: ${props => props.em || 4}em;
   font-weight: 600;
   letter-spacing: 4px;

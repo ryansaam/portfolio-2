@@ -10,6 +10,7 @@ import DesignContent from './components/DesignContent.js'
 import DesignTitle from './components/DesignTitle.js'
 import Project from './components/Project.js'
 import Widgets from './components/Widgets.js'
+import Work from './components/Work.js'
 import { Button } from './components/Styled.js'
 
 const ContactBar = styled.div`
@@ -61,6 +62,7 @@ function App() {
             <DesignTitle />
           </div>
           <DesignContent />
+          <Work />
         </ScrollWrap>
       </Main>
     </div>

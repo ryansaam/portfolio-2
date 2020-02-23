@@ -5,16 +5,8 @@ import { updateParallaxOffset } from '../actions.js'
 
 const Video = styles.video`
   visiblity: hidden;
-  max-width: 100%;
-  object-fit: ${props => props.fitToScreen ? "cover" : "contain"};
-`
-const Canvas = styles.canvas`
-  position: sticky;
-  color: white;
-  top: 0;
-  left: 0;
-  width: 100%; 
-  height: 100%;
+  max-height: 100%;
+  width: 100%;
   object-fit: ${props => props.fitToScreen ? "cover" : "contain"};
 `
 const VideoWrap = styles.div`
@@ -75,7 +67,6 @@ const ParallaxVideo = props => {
         >
           {props.children}
         </Video>
-        <Canvas id="para-canvas" />
       </VideoWrap>
     </div>
   )
@@ -86,7 +77,6 @@ const scrollAnimation = () => {
   let scrollY = 0
   const state = store.getState()
   const video = document.getElementById("para-vid")
-  const canvas = document.getElementById("para-canvas")
   const playbackConst = 250 // lower numbers = faster playback
   
   store.subscribe(() => {
@@ -104,10 +94,8 @@ const scrollAnimation = () => {
       // Get ready for next frame by setting then=now, but also adjust for your
       // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
       then = now - (elapsed % fpsInterval);
-      // draw
+      // render
       video.currentTime = (scrollY - state.parallaxOffset) / playbackConst
-      const context = canvas.getContext("2d")
-      context.drawImage(video, 0, 0)
     }
   }
   
