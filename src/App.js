@@ -1,18 +1,21 @@
 import React, { useRef } from 'react'
 import './App.css'
+import _ from 'lodash'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import store from './store.js'
 import { updateScroll } from './actions.js'
-import _ from 'lodash'
+import store from './store.js'
 import Hero from './components/HeroSlide.js'
-import DesignContent from './components/DesignContent.js'
 import DesignTitle from './components/DesignTitle.js'
+import DesignContent from './components/DesignContent.js'
 import Project from './components/Project.js'
 import Widgets from './components/Widgets.js'
 import Work from './components/Work.js'
 import Skills from './components/Skills.js'
+import Contact from './components/Contact.js'
 import { Button } from './components/Styled.js'
+
+import resume from './assets/resume/tech-resume.pdf'
 
 const ContactBar = styled.div`
   background-color: #414141;
@@ -21,6 +24,7 @@ const ContactBar = styled.div`
   padding-right: 120px;
   box-sizing: border-box;
   display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
 `
 const Main = styled.div`
@@ -46,7 +50,12 @@ function App() {
   return (
     <div className="App">
       <ContactBar>
-        <Button style={{backgroundColor: "#F9F9F9", color: "black"}} move={"right"}>Contact</Button>
+        <a style={{justifySelf: "right"}} href={resume} download>
+          <Button style={{backgroundColor: "#F9F9F9", color: "black"}}>Resume</Button>
+        </a>
+        <a style={{justifySelf: "right", marginLeft: "10px"}} href="#contact">
+          <Button style={{backgroundColor: "#F9F9F9", color: "black"}}>Contact</Button>
+        </a>
       </ContactBar>
       <Main>
         <ScrollWrap ref={scrollRef} onScroll={handleScroll}>
@@ -65,6 +74,7 @@ function App() {
           <DesignContent />
           <Work />
           <Skills />
+          <Contact />
         </ScrollWrap>
       </Main>
     </div>

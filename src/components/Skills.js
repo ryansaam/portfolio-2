@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { H1 } from './Styled.js'
+import { H1, Icon } from './Styled.js'
 
 import javascript from '../assets/vectors/js-logo.svg'
 import html from '../assets/vectors/html-logo.svg'
@@ -22,6 +22,7 @@ import mplab from '../assets/vectors/mplab-logo.svg'
 
 import bread from '../assets/images/bread.jpg'
 import bbook from '../assets/images/bbook-login.jpg'
+import game from '../assets/images/game.jpg'
 
 const SkillsWrap = styled.section`
   background-color: #000;
@@ -42,16 +43,6 @@ const CatagoryWrap = styled.div`
 const CatagoryBox = styled.div`
   padding: 20px;
   border: 3px solid #FFFFFF;
-`
-const Icon = styled.span`
-  background-image: url(${props => props.src});
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  margin-bottom: 5px;
-  display: ${props => props.inline ? "inline-block" : "block"};
 `
 const Label = styled.span`
   color: white;
@@ -95,6 +86,7 @@ const Skills = props => {
       <div style={{display: "grid", gridTemplateRows: "1fr 1fr 1fr", gridGap: "40px", alignSelf: "center", justifySelf: "center"}}>
         <img style={{height: "300px"}} src={bread} />
         <img style={{height: "300px"}} src={bbook} />
+        <img style={{height: "300px"}} src={game} />
       </div>
     </SkillsWrap>
   )
