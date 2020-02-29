@@ -36,7 +36,7 @@ const ParallaxVideo = props => {
   let videoRef = useRef(null)
 
   // lower numbers = faster playback
-  const playbackConst = 250
+  const playbackConst = props.playbackConst
 
   const updateHeight = () => {
     setScrollHeight(heightRef.current ? Math.floor(videoRef.current.duration) * playbackConst + "px" : "0px")
@@ -45,8 +45,10 @@ const ParallaxVideo = props => {
   useEffect(() => {
     const offset = heightRef.current.getBoundingClientRect().top
     store.dispatch(updateParallaxOffset(offset))
-    scrollAnimation()
+    scrollAnimation(playbackConst)
   },[])
+
+  console.log(props.scrollHeight)
 
   return (
     <div
@@ -65,19 +67,20 @@ const ParallaxVideo = props => {
           playsInline
           id="para-vid"
         >
-          {props.children}
+          {props.src}
         </Video>
+        {props.children}
       </VideoWrap>
     </div>
   )
 }
 
-const scrollAnimation = () => {
+const scrollAnimation = (playback) => {
   let fpsInterval, now, then, elapsed;
   let scrollY = 0
   const state = store.getState()
   const video = document.getElementById("para-vid")
-  const playbackConst = 250 // lower numbers = faster playback
+  const playbackConst = playback // lower numbers = faster playback
   
   store.subscribe(() => {
     scrollY = store.getState().scrollY
