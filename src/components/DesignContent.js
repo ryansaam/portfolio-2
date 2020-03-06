@@ -19,34 +19,6 @@ import eyvo2 from '../assets/images/eyvo-2.png'
 import eyvo3 from '../assets/images/eyvo-3.png'
 import eyvo4 from '../assets/images/eyvo-4.png'
 
-const Content = styled.section`
-  background-color: rgba(0,0,0,0.4);
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  z-index: 4;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-`
-const DesignContainer = styled.div.attrs(props => ({
-  style: {transform: `translateX(${props.translate}px)`}
-}))`
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 300px;
-`
-const Image = styled.img`
-  display: inline-block;
-  max-height: 600px;
-`
-const Video = styled.video`
-  display: inline-block;
-  max-height: 600px;
-`
-
 function playWhenInBounds(video, element) {
   const inBound = () => {
     const videoRect = video.getBoundingClientRect()
@@ -177,4 +149,32 @@ const desc8 = "Another project I had while at Atomar. This was then actually dev
 const desc9 = "Creating an account"
 const desc10 = "Password creation"
 const desc11 = "API integration with a company called Xero"
+
+const Content = styled.section`
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  z-index: 4;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`
+const DesignContainer = styled.div.attrs(props => ({
+  style: {transform: `translateX(${props.translate}px)`}
+}))`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 300px;
+`
+const Image = styled.img`
+  display: inline-block;
+  max-height: 600px;
+`
+const Video = styled.video`
+  display: inline-block;
+  max-height: 600px;
+`
 export default DesignContent

@@ -13,6 +13,7 @@ const HeroWrap = styled.section`
 const Sticky = styled.div`
   background-image: url(${water});
   background-size: cover;
+  background-position: center bottom;
   width: 100%;
   height: calc(100vh - 60px);
   position: sticky;

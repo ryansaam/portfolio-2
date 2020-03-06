@@ -5,71 +5,41 @@ import { Slide, H1, Button } from './Styled.js'
 import { Scheduler, MyForm, colorTheme } from '../scheduler'
 import { Calendar } from '../calendar'
 
-
-const WidgetsWrap = styled.div`
-  height: 200%;
-  position: relative;
-  top: -100%;
-`
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  grid-template-rows: 80px auto;
-`
-const GridLayout = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
-  justify-items: center;
-  grid-gap: 20px;
-`
-const Text = styled.div`
-  color: white;
-  font-size: 1.2em;
-  grid-row: 1/4;
-  grid-column: 2/3;
-`
-const Row2 = styled.div`
-  grid-row: 2/3;
-`
-
 const Widgets = props => {
-
   return (
     <WidgetsWrap>
       <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >
         <Container>
           <H1 em={2.8}>Calendar Widgets</H1>
           <GridLayout>
-            <H1 style={{gridRow: "1/2"}} em={1.4}>Colorful Calendar</H1>
-            <H1 style={{gridRow: "1/2", gridColumn: "3/4"}} em={1.4}>Schedule Me</H1>
-            <Row2>
-              <Calendar
-                width={300}
-                date={new Date()}
-                colors={colorTheme.purplenight}
-              />
-            </Row2>
+            <Block>
+              <CalendarGrid>
+                <H1 em={1.4}>Colorful Calendar</H1>
+                <Calendar
+                  width={300}
+                  date={new Date()}
+                  colors={colorTheme.purplenight}
+                />
+                <Button style={{}}>Github</Button>
+              </CalendarGrid>
+            </Block>
             <Text>
               <p>
                 {text}
               </p>
             </Text>
-            <Row2 style={{gridColumn: "3/4"}}>
-              <Scheduler
-                width={300}
-                date={new Date()}
-                colors={colorTheme.redflat}
-                form={<MyForm />}
-              />
-            </Row2>
-            <Button style={{gridRow: "3/4"}}>Github</Button>
-            <Button style={{gridRow: "3/4", gridColumn: "3/4"}}>Github</Button>
+            <Block>
+              <CalendarGrid>
+                <H1 em={1.4}>Schedule Me</H1>
+                <Scheduler
+                  width={300}
+                  date={new Date()}
+                  colors={colorTheme.redflat}
+                  form={<MyForm />}
+                />
+                <Button>Github</Button>
+              </CalendarGrid>
+            </Block>
           </GridLayout>
         </Container>
       </Slide>
@@ -90,6 +60,57 @@ const text = `
   arrows. The one on the left is just a normal calendar but the one on the right is a scheduler.
   Try clicking on the dates, you will see a form. Don't worry your info doesn't get sent anywhere,
   but you will see a promt on the screen that shows you what you entered for testing.
+`
+
+const WidgetsWrap = styled.div`
+  height: 200%;
+  position: relative;
+  top: -100%;
+`
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 80px auto;
+`
+const GridLayout = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  justify-items: center;
+  grid-gap: 20px;
+  @media (max-width: 1220px) {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+`
+const Block = styled.div`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`
+const CalendarGrid = styled.div`
+  display: grid;
+  grid-template-rows: auto auto auto;
+  align-items: start;
+  justify-items: center;
+  grid-gap: 20px
+`
+const Text = styled.div`
+  color: white;
+  font-size: 1.4em;
+  text-align: center;
+  @media (max-width: 1340px) {
+    font-size: 1.2em;
+  }
+  @media (max-width: 1220px) {
+    grid-row: 2/3;
+    grid-column: 1/3;
+  }
 `
 
 export default Widgets

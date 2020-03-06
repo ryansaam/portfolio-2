@@ -4,35 +4,6 @@ import styled from 'styled-components'
 import imgMask from '../assets/images/text-mask-bg.jpg'
 import portrait from '../assets/images/portrait.jpg'
 
-const ContentWrap = styled.div`
-  height: 100%;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  justify-items: center;
-  grid-gap: 40px;
-`
-const MaskedText = styled.p`
-  background-image: url(${imgMask});
-  background-size: cover;
-  background-position: right;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: white;
-  font-size: 1.7em;
-  letter-spacing: 2px;
-  padding: 0px;
-  margin: 0px;
-  grid-column: 2/3;
-`
-const Frame = styled.img`
-  border: 20px solid #1E1E1E;
-  border-radius: 25px;
-  width: 300px;
-  display: block;
-  grid-column: 1/2;
-`
-
 const BioContent = props => {
   return (
     <ContentWrap>
@@ -58,6 +29,107 @@ const text = `
   Recruiters, Developers, or Engineers that see this portfolio, I hope you can see me as a future
   assest to your team. I love software and computers and if you have an open position in those
   feilds, I would love to work with you!
+`
+
+const ContentWrap = styled.div`
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 40px;
+  @media (max-width: 980px) {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: none;
+  }
+  @media (max-width: 1100px) and (min-height: 1340px) {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: none;
+  }
+  @media (max-width: 540px) {
+    grid-gap: 20px;
+  }
+`
+const Frame = styled.img`
+  border: 20px solid #1E1E1E;
+  border-radius: 25px;
+  width: 300px;
+  display: block;
+  grid-column: 1/2;
+  @media (max-width: 980px) {
+    width: 220px;
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  @media (max-width: 790px) {
+    width: 180px;
+  }
+  @media (max-width: 1100px) and (min-height: 1340px) {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  @media (max-width: 540px) {
+    border: 15px solid #1E1E1E;
+    width: 120px;
+  }
+`
+const MaskedText = styled.p`
+  background-image: url(${imgMask});
+  background-size: cover;
+  background-position: right;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: white;
+  font-size: 1.7em;
+  letter-spacing: 2px;
+  padding: 0px;
+  margin: 0px;
+  grid-column: 2/3;
+  @media (max-width: 1280px) {
+    font-size: 1.6em;
+  }
+  @media (max-width: 1180px) {
+    font-size: 1.5em;
+  }
+  @media (max-width: 1100px) {
+    font-size: 1.3em;
+  }
+  @media (max-width: 1100px) and (max-height: 780px) {
+    font-size: 1.2em;
+  }
+  @media (max-width: 980px) {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+  @media (max-width: 1100px) and (min-height: 1340px) {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    font-size: 1.7em;
+  }
+  @media (max-width: 920px) {
+    font-size: 1.2em;
+  }
+  @media (max-width: 740px) {
+    font-size: 1.1em;
+  }
+  @media (max-width: 630px) {
+    font-size: 1em;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 370px) {
+    font-size: 0.7em;
+  }
+  @media (max-width: 380px) and (max-height: 920px) {
+    font-size: 10px;
+  }
+  @media (max-width: 420px) and (max-height: 740px) {
+    font-size: 9px;
+  }
+  @media (max-width: 380px) and (max-height: 660px) {
+    font-size: 7px;
+  }
 `
 
 export default BioContent

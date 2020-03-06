@@ -17,28 +17,6 @@ import { Button } from './components/Styled.js'
 
 import resume from './assets/resume/tech-resume.pdf'
 
-const ContactBar = styled.div`
-  background-color: #414141;
-  width: 100%;
-  height: 60px;
-  padding-right: 120px;
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-`
-const Main = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`
-const ScrollWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow: scroll;
-`
-
 function App() {
   const scrollRef = useRef(null)
   const scrollY = useSelector(state => state.scrollY)
@@ -50,12 +28,12 @@ function App() {
   return (
     <div className="App">
       <ContactBar>
-        <a style={{justifySelf: "right"}} href={resume} download>
-          <Button style={{backgroundColor: "#F9F9F9", color: "black"}}>Resume</Button>
-        </a>
-        <a style={{justifySelf: "right", marginLeft: "10px"}} href="#contact">
-          <Button style={{backgroundColor: "#F9F9F9", color: "black"}}>Contact</Button>
-        </a>
+        <NavItem href={resume} download>
+          <Button>Resume</Button>
+        </NavItem>
+        <NavItem style={{marginLeft: "10px"}} href="#contact">
+          <Button>Contact</Button>
+        </NavItem>
       </ContactBar>
       <Main>
         <ScrollWrap ref={scrollRef} onScroll={handleScroll}>
@@ -80,5 +58,37 @@ function App() {
     </div>
   );
 }
+
+const ContactBar = styled.div`
+  background-color: #414141;
+  width: 100%;
+  height: 60px;
+  padding-right: 120px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  @media (max-width: 900px) {
+    grid-template-columns: auto auto;
+    padding-right: 0px;
+  }
+`
+const Main = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`
+const ScrollWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: scroll;
+`
+const NavItem = styled.a`
+  justify-self: right;
+  @media (max-width: 900px) {
+    justify-self: center;
+  }
+`
 
 export default App;

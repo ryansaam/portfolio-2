@@ -3,32 +3,6 @@ import styles from 'styled-components'
 import store from '../store.js'
 import { updateParallaxOffset } from '../actions.js'
 
-const Video = styles.video`
-  visiblity: hidden;
-  max-height: 100%;
-  width: 100%;
-  object-fit: ${props => props.fitToScreen ? "cover" : "contain"};
-`
-const VideoWrap = styles.div`
-  display: block;
-  vertical-align: top;
-  box-sizing: border-box;
-  background-color: #000;
-  position: sticky;
-  top: 0px;
-  line-height: 1;
-  :-moz-full-screen {
-    position: absolute;
-  }
- :-webkit-full-screen {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  width: 100%;
-  max-width: 100%;
-  height: calc(100vh - 60px);
-`
-
 const ParallaxVideo = props => {
   const { autoPlay, loop, preload, fitToScreen } = props
   const [scrollHeight, setScrollHeight] = useState("")
@@ -47,8 +21,6 @@ const ParallaxVideo = props => {
     store.dispatch(updateParallaxOffset(offset))
     scrollAnimation(playbackConst)
   },[playbackConst])
-
-  console.log(props.scrollHeight)
 
   return (
     <div
@@ -110,5 +82,31 @@ const scrollAnimation = (playback) => {
 
   startAnimation(15)
 }
+
+const Video = styles.video`
+  visiblity: hidden;
+  max-height: 100%;
+  width: 100%;
+  object-fit: ${props => props.fitToScreen ? "cover" : "contain"};
+`
+const VideoWrap = styles.div`
+  display: block;
+  vertical-align: top;
+  box-sizing: border-box;
+  background-color: #000;
+  position: sticky;
+  top: 0px;
+  line-height: 1;
+  :-moz-full-screen {
+    position: absolute;
+  }
+ :-webkit-full-screen {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  width: 100%;
+  max-width: 100%;
+  height: calc(100vh - 60px);
+`
 
 export default ParallaxVideo

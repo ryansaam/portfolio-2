@@ -11,6 +11,7 @@ export const Slide = styled.section.attrs(props => ({
   height: 100%;
   border: 20px solid ${props => props.border || "#1E1E1E"};
   box-sizing: border-box;
+  display: grid;
 `
 
 
@@ -22,12 +23,18 @@ export const H1 = styled.h1`
   font-weight: 600;
   letter-spacing: 4px;
   opacity: ${props => props.op || 1};
+  @media (max-width: 480px) {
+    font-size: ${props => props.em || 3}em;
+  }
+  @media (max-width: 480px) {
+    font-size: ${props => props.em || 2.6}em;
+  }
 `
 
 
 export const Button = styled.button`
-  background-color: "#5D378F";
-  color: "white";
+  background-color: #F9F9F9;
+  color: black;
   width: 160px;
   height: 40px;
   font-size: 1em;
@@ -40,6 +47,12 @@ export const Button = styled.button`
   opacity: 0.9;
   :hover {
     opacity: 1;
+  }
+  @media (max-width: 480px) {
+    width: 140px;
+  }
+  @media (max-width: 380px) {
+    width: 120px;
   }
 `
 
