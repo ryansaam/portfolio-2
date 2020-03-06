@@ -27,9 +27,8 @@ const BioWrap = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: center;
+  padding: 40px;
+  box-sizing: border-box;
 `
 
 const Hero = props => {

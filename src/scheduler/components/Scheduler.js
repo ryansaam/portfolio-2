@@ -33,6 +33,7 @@ const Scheduler = props => {
           height: "100%", 
           width:"100%",
           top: "0px",
+          zIndex: "10",
           display: isOpen ? "grid" : "none",
           alignItems: "center",
           justifyItems: "center"

@@ -46,7 +46,7 @@ const ParallaxVideo = props => {
     const offset = heightRef.current.getBoundingClientRect().top
     store.dispatch(updateParallaxOffset(offset))
     scrollAnimation(playbackConst)
-  },[])
+  },[playbackConst])
 
   console.log(props.scrollHeight)
 

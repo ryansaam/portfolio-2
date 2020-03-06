@@ -84,12 +84,16 @@ const Skills = props => {
         </CatagoryBox>
       </CatagoryWrap>
       <div style={{display: "grid", gridTemplateRows: "1fr 1fr 1fr", gridGap: "40px", alignSelf: "center", justifySelf: "center"}}>
-        <img style={{height: "300px"}} src={bread} />
-        <img style={{height: "300px"}} src={bbook} />
-        <img style={{height: "300px"}} src={game} />
+        <img alt={alt1} style={{height: "300px"}} src={bread} />
+        <img alt={alt2} style={{height: "300px"}} src={bbook} />
+        <img alt={alt3} style={{height: "300px"}} src={game} />
       </div>
     </SkillsWrap>
   )
 }
+
+const alt1 = "Electrical circuit on a breadboard in dark lighting"
+const alt2 = "App login with terminal text in background"
+const alt3 = "Programming book and Macbook air with white circle and blue background program running on a desk"
 
 export default Skills

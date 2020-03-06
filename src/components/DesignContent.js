@@ -94,7 +94,7 @@ const DesignContent = props => {
     playWhenInBounds(bbookVideo, contentElement)
     playWhenInBounds(latheVideo, contentElement)
     playWhenInBounds(cpanelVideo, contentElement)
-  },[bbookRef.current, latheRef.current, cpanelRef.current, scroll])
+  },[scroll])
 
   return (
     <div style={{position: "relative", zIndex: "3"}}>
@@ -109,17 +109,39 @@ const DesignContent = props => {
           <DesignContainer
             ref={designContainerRef} translate={ (offset + ((contentOffset - (bbookOffset / 2)) / 2)) - scroll }
           >
-            <Video muted loop ref={bbookRef} src={bbook} />
-            <Video muted loop ref={latheRef} src={lathe} />
-            <Video muted loop ref={cpanelRef} src={cpanel} />
-            <Image src={zsites1} />
-            <Image src={zsites2} />
-            <Image src={zsites3} />
-            <Image src={zsites4} />
-            <Image src={eyvo1} />
-            <Image src={eyvo2} />
-            <Image src={eyvo3} />
-            <Image src={eyvo4} />
+            <DesignItem desc={desc1}>
+              <Video muted loop ref={bbookRef} src={bbook} />
+            </DesignItem>
+            <DesignItem desc={desc2}>
+              <Video muted loop ref={latheRef} src={lathe} />
+            </DesignItem>
+            <DesignItem desc={desc3}>
+              <Video muted loop ref={cpanelRef} src={cpanel} />
+            </DesignItem>
+            <DesignItem desc={desc4}>
+              <Image alt={desc4} src={zsites1} />
+            </DesignItem>
+            <DesignItem desc={desc5}>
+              <Image alt={desc5} src={zsites2} />
+            </DesignItem>
+            <DesignItem desc={desc6}>
+              <Image alt={desc6} src={zsites3} />
+            </DesignItem>
+            <DesignItem desc={desc7}>
+              <Image alt={desc7} src={zsites4} />
+            </DesignItem>
+            <DesignItem desc={desc8}>
+              <Image alt={desc8} src={eyvo1} />
+            </DesignItem>
+            <DesignItem desc={desc9}>
+              <Image alt={desc9} src={eyvo2} />
+            </DesignItem>
+            <DesignItem desc={desc10}>
+              <Image alt={desc10} src={eyvo3} />
+            </DesignItem>
+            <DesignItem desc={desc11}>
+              <Image alt={desc11} src={eyvo4} />
+            </DesignItem>
           </DesignContainer>
         </Content>
       </ParallaxVideo>
@@ -127,4 +149,32 @@ const DesignContent = props => {
   )
 }
 
+const DesignItem = props => {
+  return (
+    <div>
+      {props.children}
+      <div style={{margin: "5px 0px", padding: "0px 40px", boxSizing: "border-box"}}>
+        <span style={{
+          color: "white",
+          width: "100%",
+          fontSize: "1.2em",
+          textAlign: "center",
+          display: "inline-block"
+        }}>{props.desc}</span>
+      </div>
+    </div>
+  )
+}
+
+const desc1 = "A startup idea I had. I used Adode XD to build a demo"
+const desc2 = "A propasal atempt to save mini-lathe.com that was discused with the orginal owner over email. Prototyped using React.js"
+const desc3 = "My first attempt trying Angular 9"
+const desc4 = "A design for a Houston company I made while working at Atomar using Sketch. Here is the employee login"
+const desc5 = "A daily inspection report"
+const desc6 = "The main dashboard"
+const desc7 = "The navigation"
+const desc8 = "Another project I had while at Atomar. This was then actually developed by our team and myself"
+const desc9 = "Creating an account"
+const desc10 = "Password creation"
+const desc11 = "API integration with a company called Xero"
 export default DesignContent

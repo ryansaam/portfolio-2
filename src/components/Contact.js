@@ -59,10 +59,10 @@ const Contact = props => {
             <a href="mailto:ryansam.inquiries@gmail.com">
               <Icon style={{marginBottom: "0px", marginRight: "10px"}} inline src={gmail} />
             </a>
-            <a target="_blank" href="https://www.linkedin.com/in/ryan-sam-748504161/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ryan-sam-748504161/">
               <Icon style={{marginBottom: "0px", marginRight: "10px"}} inline src={linkedin} />
             </a>
-            <a target="_blank" href="https://github.com/ryansaam">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/ryansaam">
               <Icon style={{marginBottom: "0px", marginRight: "10px"}} inline src={git} />
             </a>
           </div>
