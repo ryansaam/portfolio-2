@@ -67,7 +67,7 @@ const DesignContent = props => {
     playWhenInBounds(latheVideo, contentElement)
     playWhenInBounds(cpanelVideo, contentElement)
   },[scroll])
-
+  const transalteAmount = (offset + ((contentOffset - (bbookOffset / 2 / 2 - 200)) / 2)) - scroll
   return (
     <div style={{position: "relative", zIndex: "3"}}>
       <ParallaxVideo 
@@ -79,7 +79,7 @@ const DesignContent = props => {
       >
         <Content ref={contentRef} >
           <DesignContainer
-            ref={designContainerRef} translate={ (offset + ((contentOffset - (bbookOffset / 2)) / 2)) - scroll }
+            ref={designContainerRef} translate={ transalteAmount }
           >
             <DesignItem desc={desc1}>
               <Video muted loop ref={bbookRef} src={bbook} />
@@ -123,7 +123,7 @@ const DesignContent = props => {
 
 const DesignItem = props => {
   return (
-    <div>
+    <ItemContainer>
       {props.children}
       <div style={{margin: "5px 0px", padding: "0px 40px", boxSizing: "border-box"}}>
         <span style={{
@@ -131,10 +131,10 @@ const DesignItem = props => {
           width: "100%",
           fontSize: "1.2em",
           textAlign: "center",
-          display: "inline-block"
+          display: "block"
         }}>{props.desc}</span>
       </div>
-    </div>
+    </ItemContainer>
   )
 }
 
@@ -153,7 +153,6 @@ const desc11 = "API integration with a company called Xero"
 const Content = styled.section`
   background-color: rgba(0,0,0,0.4);
   width: 100%;
-  height: 100%;
   overflow: hidden;
   position: absolute;
   top: 0px;
@@ -165,16 +164,22 @@ const Content = styled.section`
 const DesignContainer = styled.div.attrs(props => ({
   style: {transform: `translateX(${props.translate}px)`}
 }))`
+  height: 85%;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 300px;
 `
+const ItemContainer = styled.div`
+  height: calc(100vh - 60px);
+  display: grid;
+  grid-template-rows: 80% auto;
+`
 const Image = styled.img`
-  display: inline-block;
-  max-height: 600px;
+  display: block;
+  height: 100%;
 `
 const Video = styled.video`
-  display: inline-block;
-  max-height: 600px;
+  display: block;
+  height: 100%;
 `
 export default DesignContent
