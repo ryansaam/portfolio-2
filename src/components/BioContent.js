@@ -16,19 +16,20 @@ const BioContent = props => {
 }
 
 const text = `
-  I don't really think of myself as a software engineer. I considier myself as general terms like 
-  "engineer" or "computer scientist". Engineer because it's not just software I'm engineering,
-  but other things like full fledged designs with thought in every color. Or dumb circuits 
-  that make a shift registar count to 255 in binary. Computer scientist because I look far 
-  beyond the code I write for them to execute. But many other profesionals wouldn't call me any
-  three of those titles. Because I didn't go to college, or I might not have as much expertises 
-  they do in one domain. But for the past two years I have studied the web for 5 - 16 hours a day.
-  Although I can't show you all those hours I spent reading books, reading articles, watching 
-  tutorials, and developing migrains from seeing some form or "Error" in the console. I can show
-  you some of the highlights of the things I built using what I learned from those experiences.
-  Recruiters, Developers, or Engineers that see this portfolio, I hope you can see me as a future
-  assest to your team. I love software and computers and if you have an open position in those
-  feilds, I would love to work with you!
+  I don't really think of myself as a software engineer. I consider myself in general terms 
+  like "engineer" or "computer scientist". Engineer because it's not just software I'm 
+  engineering, but other things like full fledged designs with thought in every color. Or 
+  dumb circuits that make a shift registar count to 255 in binary. Computer scientist 
+  because I look far beyond the code I write for them to execute. But many other 
+  professionals wouldn't call me any three of those titles. Because I didn't go to college, 
+  or I might not have as much expertises they do in one domain. But for the past two years I 
+  have studied the web for 5 - 16 hours a day. Although I can't show you all those hours I 
+  spent reading books, reading articles, watching tutorials, and developing migraines from 
+  seeing some form or "Error" in the console. I can show you some of the highlights of the 
+  things I built using what I learned from those experiences. Recruiters, Developers, or 
+  Engineers that see this portfolio, I hope you can see me as a future asset to your team. I love 
+  software and computers and if you have an open position in those fields, I would love to work 
+  with you!
 `
 
 const ContentWrap = styled.div`

@@ -54,7 +54,7 @@ const Container = styled.div`
   grid-template-rows: auto auto 1fr auto;
 `
 const Video = styled.video`
-  width: 840px;
+  width: 700px;
   margin: 20px 0px;
   @media (max-width: calc(840px + 40px)) {
     width: 640px;

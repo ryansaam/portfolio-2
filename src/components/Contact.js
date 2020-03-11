@@ -7,54 +7,19 @@ import gmail from '../assets/vectors/gmail-logo.svg'
 import linkedin from '../assets/vectors/linkedin-logo.svg'
 import git from '../assets/vectors/github-logo.svg'
 
-const ContactWrap = styled.section`
-  background-color: #121212;
-  width: 100%;
-  height: 600px;
-  padding: 40px;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 3;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-`
-const Content = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`
-const P = styled.p`
-  color: white;
-  font-size: 1.1em;
-  opacity: 0.6;
-`
-const Connect = styled.div`
-  display: grid;
-  align-items: top;
-  justify-items: center;
-  grid-template-rows: auto auto 1fr;
-  grid-gap: 20px;
-`
-const Info = styled.span`
-  color: white;
-  margin-bottom: 10px;
-  font-size: 1.4em;
-  display: block
-`
-
 const Contact = props => {
   return (
     <ContactWrap>
       <Content>
         <article>
-          <H1 center em={2.4}>What interest me</H1>
+          <H1 center em={ window.innerWidth > 450 ? 2.4 : 1.8 }>What interest me</H1>
           <P>{p1}</P>
           <P>{p2}</P>
           <P>{p3}</P>
           <P>{p4}</P>
         </article>
         <Connect id="contact">
-          <H1 em={2.4}>Get in touch!</H1>
+          <H1 em={ window.innerWidth > 450 ? 2.4 : 1.8 }>Get in touch!</H1>
           <div>
             <a href="mailto:ryansam.inquiries@gmail.com">
               <Icon style={{marginBottom: "0px", marginRight: "10px"}} inline src={gmail} />
@@ -106,6 +71,46 @@ the machine. Because my focus on the web, I don't allot as much time as I
 would like to learn embedded systems. In my later career though I hope
 to work on these tiny computers, or maybe large depending on the application.
 And maybe one day I will write the software that lives on a rocket!
+`
+
+const ContactWrap = styled.section`
+  background-color: #121212;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 3;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+`
+const Content = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media(max-width: 980px) {
+    grid-template-columns: 1fr;
+  } 
+`
+const P = styled.p`
+  color: white;
+  font-size: 1.1em;
+  opacity: 0.6;
+`
+const Connect = styled.div`
+  display: grid;
+  align-items: top;
+  justify-items: center;
+  grid-template-rows: auto auto 1fr;
+  grid-gap: 20px;
+  @media(max-width: 980px) {
+    grid-row: 1/2;
+  }
+`
+const Info = styled.span`
+  color: white;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  display: block
 `
 
 export default Contact

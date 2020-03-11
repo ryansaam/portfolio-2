@@ -4,6 +4,21 @@ import styled from 'styled-components'
 import { H1 } from './Styled.js'
 import image from '../assets/images/japan-city.jpg'
 
+const DesignTitle = props => {
+  return (
+    <TitleWrap>
+      <Container>
+        <HeaderWrap>
+          <div>
+            <H1 style={{color: "#b1b1b1"}}>I'm not a designer,</H1>
+            <H1>but I make designs.</H1>
+          </div>
+        </HeaderWrap>
+      </Container>
+    </TitleWrap>
+  )
+}
+
 const TitleWrap = styled.div`
   height: 200%;
   position: relative;
@@ -26,21 +41,12 @@ const HeaderWrap = styled.div`
   grid-template-columns: 1fr 40%;
   justify-items: right;
   align-items: center;
+  @media (max-width: 1260px) {
+    grid-template-columns: 1fr 20%;
+  }
+  @media (max-width: 940px) {
+    grid-template-columns: 1fr 10%;
+  }
 `
-
-const DesignTitle = props => {
-  return (
-    <TitleWrap>
-      <Container>
-        <HeaderWrap>
-          <div>
-            <H1 style={{color: "#b1b1b1"}}>I'm not a designer,</H1>
-            <H1>but I make designes.</H1>
-          </div>
-        </HeaderWrap>
-      </Container>
-    </TitleWrap>
-  )
-}
 
 export default DesignTitle

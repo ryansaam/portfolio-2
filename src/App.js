@@ -82,7 +82,7 @@ const ScrollWrap = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow: scroll;
+  overflow-y: scroll;
 `
 const NavItem = styled.a`
   justify-self: right;

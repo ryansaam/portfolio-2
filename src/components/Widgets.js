@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import { Slide, H1, Button } from './Styled.js'
@@ -6,21 +6,22 @@ import { Scheduler, MyForm, colorTheme } from '../scheduler'
 import { Calendar } from '../calendar'
 
 const Widgets = props => {
+
   return (
     <WidgetsWrap>
       <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >
         <Container>
           <H1 em={2.8}>Calendar Widgets</H1>
           <GridLayout>
-            <Block>
+            <Block style={{display: (window.innerWidth < 700) ? "none" : "grid"}}>
               <CalendarGrid>
                 <H1 em={1.4}>Colorful Calendar</H1>
                 <Calendar
-                  width={300}
+                  width={260}
                   date={new Date()}
                   colors={colorTheme.purplenight}
                 />
-                <Button style={{}}>Github</Button>
+                <Button>Github</Button>
               </CalendarGrid>
             </Block>
             <Text>
@@ -28,11 +29,11 @@ const Widgets = props => {
                 {text}
               </p>
             </Text>
-            <Block>
+            <Block style={{gridColumn: (window.innerWidth < 700) ? "1/3" : "3/4"}}>
               <CalendarGrid>
                 <H1 em={1.4}>Schedule Me</H1>
                 <Scheduler
-                  width={300}
+                  width={260}
                   date={new Date()}
                   colors={colorTheme.redflat}
                   form={<MyForm />}
@@ -76,6 +77,9 @@ const Container = styled.div`
   align-items: center;
   justify-items: center;
   grid-template-rows: 80px auto;
+  @media (max-width: 1220px) {
+    padding: 20px;
+  }
 `
 const GridLayout = styled.div`
   width: 100%;
@@ -110,6 +114,16 @@ const Text = styled.div`
   @media (max-width: 1220px) {
     grid-row: 2/3;
     grid-column: 1/3;
+    font-size: 1em;
+  }
+  @media (max-width: 980px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 670px) {
+    font-size: 0.6em;
+  }
+  @media (max-width: 380px) {
+    font-size: 0.4em;
   }
 `
 
