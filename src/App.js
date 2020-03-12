@@ -13,9 +13,10 @@ import Widgets from './components/Widgets.js'
 import Work from './components/Work.js'
 import Skills from './components/Skills.js'
 import Contact from './components/Contact.js'
-import { Button } from './components/Styled.js'
+import { Button, Icon } from './components/Styled.js'
 
 import resume from './assets/resume/tech-resume.pdf'
+import downloadIcon from './assets/vectors/download-icon.svg'
 
 function App() {
   const scrollRef = useRef(null)
@@ -29,7 +30,10 @@ function App() {
     <div className="App">
       <ContactBar>
         <NavItem href={resume} download>
-          <Button>Resume</Button>
+          <Button>
+            <span style={{display: "inline-block", marginRight: "5px"}}>Resume</span>
+            <Icon inline style={{height: "20px", width: "20px", margin: "0px", transform: "translateY(5px)"}} src={downloadIcon}/>
+          </Button>
         </NavItem>
         <NavItem style={{marginLeft: "10px"}} href="#contact">
           <Button>Contact</Button>

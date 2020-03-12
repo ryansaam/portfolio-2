@@ -21,7 +21,9 @@ const Widgets = props => {
                   date={new Date()}
                   colors={colorTheme.purplenight}
                 />
-                <Button>Github</Button>
+                <a href="https://github.com/ryansaam/colorful-calendar-v2" target="_blank" rel="noopener noreferrer">
+                  <Button>Github</Button>
+                </a>
               </CalendarGrid>
             </Block>
             <Text>
@@ -38,7 +40,9 @@ const Widgets = props => {
                   colors={colorTheme.redflat}
                   form={<MyForm />}
                 />
-                <Button>Github</Button>
+                <a href="https://github.com/ryansaam/schedule-me-v2" target="_blank" rel="noopener noreferrer">
+                  <Button>Github</Button>
+                </a>
               </CalendarGrid>
             </Block>
           </GridLayout>

@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 
@@ -55,6 +56,13 @@ export const Button = styled.button`
     width: 120px;
   }
 `
+export const Link = props => {
+  return (
+    <a style={{justifySelf: props.move || "center"}} href={props.href} target={"_blank"} rel="noopener noreferrer" >
+      <Button>{props.children}</Button>
+    </a>
+  )
+}
 
 
 export const Icon = styled.span`

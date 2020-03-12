@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 
-import { Slide, H1, Button } from './Styled.js'
+import { Slide, H1, Button, Link } from './Styled.js'
 import litphumVideo from '../assets/playback-media/litphum-demo.mp4'
 import logo from '../assets/images/litphum-logo.png'
 
@@ -30,8 +30,8 @@ const Project = props => {
           <img alt={"logo for project"} style={{width: "200px"}} src={logo} />
           <Video ref={videoRef} muted loop src={litphumVideo} />
           <div style={{width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr", gridGap: "20px"}}>
-            <Button move={"right"}>Github</Button>
-            <Button move={"left"}>View</Button>
+            <Link href="https://github.com/ryansaam/litphum" move={"right"}>Github</Link>
+            <Link href="https://litphum.aboutryansam.com" move={"left"}>View</Link>
           </div>
         </Container>
       </Slide>
