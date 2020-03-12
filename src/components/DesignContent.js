@@ -81,7 +81,7 @@ const DesignContent = props => {
           <DesignContainer
             ref={designContainerRef} translate={ transalteAmount }
           >
-            <DesignItem desc={desc1}>
+            <DesignItem padding={"0px"} desc={desc1}>
               <Video muted loop ref={bbookRef} src={bbook} />
             </DesignItem>
             <DesignItem desc={desc2}>
@@ -125,7 +125,7 @@ const DesignItem = props => {
   return (
     <ItemContainer>
       {props.children}
-      <div style={{margin: "5px 0px", padding: "0px 40px", boxSizing: "border-box"}}>
+      <div style={{margin: "5px 0px", padding: props.padding || "0px 40px", boxSizing: "border-box"}}>
         <span style={{
           color: "white",
           width: "100%",

@@ -4,7 +4,7 @@ import store from '../store.js'
 import { updateParallaxOffset } from '../actions.js'
 
 const ParallaxVideo = props => {
-  const { autoPlay, loop, preload, fitToScreen } = props
+  const { autoPlay, loop, preload } = props
   const [scrollHeight, setScrollHeight] = useState("")
   const heightRef = useRef(null)
   let videoRef = useRef(null)
@@ -19,7 +19,10 @@ const ParallaxVideo = props => {
   useEffect(() => {
     const offset = heightRef.current.getBoundingClientRect().top
     store.dispatch(updateParallaxOffset(offset))
-    scrollAnimation(playbackConst)
+    if (window.innerWidth >= 1000 )
+      scrollAnimation(playbackConst)
+    else
+      videoRef.current.currentTime = 8
   },[playbackConst])
 
   return (
@@ -34,7 +37,7 @@ const ParallaxVideo = props => {
           autoPlay={autoPlay}
           loop={loop}
           ref={videoRef}
-          fitToScreen={fitToScreen}
+          fitToScreen
           onLoadedMetadata={updateHeight}
           playsInline
           id="para-vid"
@@ -85,7 +88,7 @@ const scrollAnimation = (playback) => {
 
 const Video = styles.video`
   visiblity: hidden;
-  max-height: 100%;
+  height: 100%;
   width: 100%;
   object-fit: ${props => props.fitToScreen ? "cover" : "contain"};
 `
