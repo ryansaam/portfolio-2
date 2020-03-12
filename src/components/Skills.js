@@ -120,6 +120,9 @@ const SkillsWrap = styled.section`
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
   }
+  @media (max-width: 640px) {
+    padding: 20px;
+  }
 `
 const CatagoryWrap = styled.div`
   display: grid;

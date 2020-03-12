@@ -11,41 +11,43 @@ const Widgets = props => {
     <WidgetsWrap>
       <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >
         <Container>
-          <H1 em={2.8}>Calendar Widgets</H1>
-          <GridLayout>
-            <Block style={{display: (window.innerWidth < 700) ? "none" : "grid"}}>
-              <CalendarGrid>
-                <H1 em={1.4}>Colorful Calendar</H1>
-                <Calendar
-                  width={260}
-                  date={new Date()}
-                  colors={colorTheme.purplenight}
-                />
-                <a href="https://github.com/ryansaam/colorful-calendar-v2" target="_blank" rel="noopener noreferrer">
-                  <Button>Github</Button>
-                </a>
-              </CalendarGrid>
-            </Block>
-            <Text>
-              <p>
-                {text}
-              </p>
-            </Text>
-            <Block style={{gridColumn: (window.innerWidth < 700) ? "1/3" : "3/4"}}>
-              <CalendarGrid>
-                <H1 em={1.4}>Schedule Me</H1>
-                <Scheduler
-                  width={260}
-                  date={new Date()}
-                  colors={colorTheme.redflat}
-                  form={<MyForm />}
-                />
-                <a href="https://github.com/ryansaam/schedule-me-v2" target="_blank" rel="noopener noreferrer">
-                  <Button>Github</Button>
-                </a>
-              </CalendarGrid>
-            </Block>
-          </GridLayout>
+          <div style={{display: "grid", gridGap: "20px"}}>
+            <H1 center em={window.innerWidth > 525 ? 2.8 : 1.6}>Calendar Widgets</H1>
+            <GridLayout>
+              <Block style={{display: (window.innerWidth < 700) ? "none" : "grid"}}>
+                <CalendarGrid>
+                  <H1 em={1.4}>Colorful Calendar</H1>
+                  <Calendar
+                    width={260}
+                    date={new Date()}
+                    colors={colorTheme.purplenight}
+                  />
+                  <a href="https://github.com/ryansaam/colorful-calendar-v2" target="_blank" rel="noopener noreferrer">
+                    <Button>Github</Button>
+                  </a>
+                </CalendarGrid>
+              </Block>
+              <Text style={{display: (window.innerWidth > 1220 || window.innerHeight > 912 ) ? "block" : "none"}}>
+                <p>
+                  {text}
+                </p>
+              </Text>
+              <SpecialBlock>
+                <CalendarGrid>
+                  <H1 em={1.4}>Schedule Me</H1>
+                  <Scheduler
+                    width={window.innerHeight > 720 ? 260 : 200}
+                    date={new Date()}
+                    colors={colorTheme.redflat}
+                    form={<MyForm />}
+                  />
+                  <a href="https://github.com/ryansaam/schedule-me-v2" target="_blank" rel="noopener noreferrer">
+                    <Button>Github</Button>
+                  </a>
+                </CalendarGrid>
+              </SpecialBlock>
+            </GridLayout>
+          </div>
         </Container>
       </Slide>
     </WidgetsWrap>
@@ -80,7 +82,6 @@ const Container = styled.div`
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-rows: 80px auto;
   @media (max-width: 1220px) {
     padding: 20px;
   }
@@ -101,6 +102,17 @@ const Block = styled.div`
   align-items: center;
   justify-items: center;
 `
+const SpecialBlock = styled.div`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  @media (max-width: 1220px) {
+    grid-column: 2/3;
+  }
+  @media (max-width: 700px) {
+    grid-column: 1/3;
+  }
+`
 const CalendarGrid = styled.div`
   display: grid;
   grid-template-rows: auto auto auto;
@@ -119,6 +131,7 @@ const Text = styled.div`
     grid-row: 2/3;
     grid-column: 1/3;
     font-size: 1em;
+    justify-self: center;
   }
   @media (max-width: 980px) {
     font-size: 0.8em;

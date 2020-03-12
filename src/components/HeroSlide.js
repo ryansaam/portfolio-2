@@ -30,6 +30,9 @@ const Container = styled.div`
   height: 100%;
   padding: 40px;
   box-sizing: border-box;
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 `
 
 const Hero = props => {

@@ -16,7 +16,7 @@ const Contact = props => {
           <P>{p1}</P>
           <P>{p2}</P>
           <P>{p3}</P>
-          <P>{p4}</P>
+          <P style={{marginBottom: "0px"}}>{p4}</P>
         </article>
         <Connect id="contact">
           <H1 em={ window.innerWidth > 450 ? 2.4 : 1.8 }>Get in touch!</H1>
@@ -83,13 +83,16 @@ const ContactWrap = styled.section`
   display: grid;
   justify-items: center;
   align-items: center;
+  @media (max-width: 640px) {
+    padding: 20px;
+  }
 `
 const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   @media(max-width: 980px) {
     grid-template-columns: 1fr;
-  } 
+  }
 `
 const P = styled.p`
   color: white;

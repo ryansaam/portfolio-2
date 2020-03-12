@@ -122,14 +122,26 @@ const MaskedText = styled.p`
   @media (max-width: 370px) {
     font-size: 0.7em;
   }
-  @media (max-width: 380px) and (max-height: 920px) {
-    font-size: 10px;
+  @media (max-width: 420px) and (max-height: 830px) {
+    font-size: 14px;
+  }
+  @media (max-width: 420px) and (max-height: 790px) {
+    font-size: 13px;
   }
   @media (max-width: 420px) and (max-height: 740px) {
-    font-size: 9px;
+    font-size: 12px;
   }
-  @media (max-width: 380px) and (max-height: 660px) {
-    font-size: 7px;
+  @media (max-width: 380px) and (max-height: 820px) {
+    font-size: 13px;
+  }
+  @media (max-width: 380px) and (max-height: 750px) {
+    font-size: 11px;
+  }
+  @media (max-width: 380px) and (max-height: 680px) {
+    font-size: 10px;
+  }
+  @media (max-width: 380px) and (max-height: 650px) {
+    font-size: 9px;
   }
 `
 

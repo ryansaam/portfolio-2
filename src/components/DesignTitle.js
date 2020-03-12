@@ -10,8 +10,8 @@ const DesignTitle = props => {
       <Container>
         <HeaderWrap>
           <div>
-            <H1 style={{color: "#b1b1b1"}}>I'm not a designer,</H1>
-            <H1>but I make designs.</H1>
+            <H1 style={{color: "#b1b1b1", fontSize: window.innerWidth > 765 ? "4em" : "1.4em"}}>I'm not a designer,</H1>
+            <H1 style={{fontSize: window.innerWidth > 765 ? "4em" : "1.4em"}}>but I make designs.</H1>
           </div>
         </HeaderWrap>
       </Container>
@@ -37,6 +37,8 @@ const HeaderWrap = styled.div`
   background-color: rgba(0,0,0, 0.8);
   width: 100%;
   height: 100%;
+  padding-left: 20px;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 40%;
   justify-items: right;

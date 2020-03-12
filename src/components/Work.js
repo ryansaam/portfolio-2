@@ -12,7 +12,7 @@ const Work = props => {
       <HeadingWrap>
         <H1 em={ window.innerWidth > 470 ? 2.8 : 2 }>Work Experience</H1>
         <H1 op={0.8} em={ window.innerWidth > 470 ? 2.8 : 1.6 }>Atomar</H1>
-        <H1 op={0.6} em={1.4}>Houston, TX</H1>
+        <H1 style={{marginBottom: "10px"}} op={0.6} em={1.4}>Houston, TX</H1>
       </HeadingWrap>
       <ImageGroup>
         <Image style={{justifySelf: "right"}} src={board} />
@@ -139,6 +139,12 @@ const SummaryText = styled.p`
   }
   @media (max-width: 750px) {
     font-size: 1.3em;
+  }
+  @media (max-width: 630px) {
+    font-size: 1.1em;
+  }
+  @media (max-width: 430px) {
+    padding: 20px 0px;
   }
 `
 const ImageGroup = styled.div`

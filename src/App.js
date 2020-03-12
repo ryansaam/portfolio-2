@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './App.css'
 import _ from 'lodash'
 import styled from 'styled-components'
@@ -17,7 +17,6 @@ import { Button, Icon } from './components/Styled.js'
 
 import resume from './assets/resume/tech-resume.pdf'
 import downloadIcon from './assets/vectors/download-icon.svg'
-import water from './assets/images/jumping-water.jpg'
 
 function App() {
   const scrollRef = useRef(null)
@@ -26,7 +25,14 @@ function App() {
   const handleScroll = _.throttle(() => {
     store.dispatch(updateScroll(scrollRef.current.scrollTop))
   }, 50)
-  
+
+  useEffect(() => {
+    window.addEventListener("resize", _.throttle(() => {
+      window.location.reload()
+    }, 1000))
+    return () => window.removeEventListener("resize")
+  }, [])
+
   return (
     <div className="App">
       <ContactBar>
@@ -71,12 +77,12 @@ const ScreenWarning = props => {
     <ScreenWarningWrap style={{display: (toggle && window.innerWidth < 1030) ? "grid": "none"}}>
       <Prompt>
         <div style={{display: "grid", gridGap: "10px"}}>
-          <P>
+          <span>
             <h1 style={{color: "#a1a1a1", fontSize: "1.3em", fontWeight:"600", marginRight: "10px", display: "inline"}}>
-             Mobile Warning:
+              Mobile Warning:
             </h1>
-            This site has been modified to fit your screen size.
-          </P>
+            <P>This site has been modified to fit your screen size.</P>
+          </span>
           <P>{warnText}</P>
           <Button onClick={() => setToggle(!toggle)}>Continue</Button>
         </div>
@@ -114,6 +120,7 @@ const P = styled.p`
   color: white;
   font-size: 1.2em;
   margin: 0px;
+  display: inline;
 `
 const warnText = `
   I spent a lot of time to learn the skills to
