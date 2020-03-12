@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './App.css'
 import _ from 'lodash'
 import styled from 'styled-components'
@@ -17,6 +17,7 @@ import { Button, Icon } from './components/Styled.js'
 
 import resume from './assets/resume/tech-resume.pdf'
 import downloadIcon from './assets/vectors/download-icon.svg'
+import water from './assets/images/jumping-water.jpg'
 
 function App() {
   const scrollRef = useRef(null)
@@ -59,9 +60,69 @@ function App() {
           <Contact />
         </ScrollWrap>
       </Main>
+      <ScreenWarning />
     </div>
   );
 }
+
+const ScreenWarning = props => {
+  const [toggle, setToggle] = useState(0b1)
+  return (
+    <ScreenWarningWrap style={{display: (toggle && window.innerWidth < 1030) ? "grid": "none"}}>
+      <Prompt>
+        <div style={{display: "grid", gridGap: "10px"}}>
+          <P>
+            <h1 style={{color: "#a1a1a1", fontSize: "1.3em", fontWeight:"600", marginRight: "10px", display: "inline"}}>
+             Mobile Warning:
+            </h1>
+            This site has been modified to fit your screen size.
+          </P>
+          <P>{warnText}</P>
+          <Button onClick={() => setToggle(!toggle)}>Continue</Button>
+        </div>
+      </Prompt>
+    </ScreenWarningWrap>
+  )
+}
+const ScreenWarningWrap = styled.div`
+  background-color: rgba(0,0,0,0.8);
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  z-index: 10;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+`
+const Prompt = styled.div`
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 3px solid #a1a1a1;
+  border-radius: 20px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+`
+const P = styled.p`
+  color: white;
+  font-size: 1.2em;
+  margin: 0px;
+`
+const warnText = `
+  I spent a lot of time to learn the skills to
+  make this site. I ask you if you're using a
+  mobile or a small monitor device, please view
+  on a laptop or desktop computer for the best
+  experience. If you're using an iPad or similar
+  tablet try turning your device sideways. 
+`
 
 const ContactBar = styled.div`
   background-color: #414141;
