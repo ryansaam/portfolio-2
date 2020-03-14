@@ -20,7 +20,7 @@ const DesignTitle = props => {
 }
 
 const TitleWrap = styled.div`
-  height: 200%;
+  height: 300%;
   position: relative;
   top: -100%;
 `
@@ -31,7 +31,7 @@ const Container = styled.div`
   width: 100%;
   height: calc(100vh - 60px);
   position: sticky;
-  top: 0px;
+  top: 60px;
 `
 const HeaderWrap = styled.div`
   background-color: rgba(0,0,0, 0.8);

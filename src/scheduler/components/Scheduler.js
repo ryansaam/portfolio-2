@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Calendar from './Calendar.js'
 import '../Calendar.css'
+import disableScroll from 'disable-scroll'
 
 const Scheduler = props => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,7 @@ const Scheduler = props => {
     const form = document.getElementById("sch-modal")
     root.appendChild(form)
   })
-
+  isOpen ? disableScroll.on() : disableScroll.off()
   const form = React.cloneElement(props.form, {...nodeData, handleClick})
   return (
     <div>
@@ -29,11 +30,11 @@ const Scheduler = props => {
         id="sch-modal"
         style={{
           backgroundColor: "rgba(0,0,0,0.4)", 
-          position: "absolute", 
+          position: "fixed", 
           height: "100%", 
           width:"100%",
           top: "0px",
-          zIndex: "10",
+          zIndex: "1000",
           display: isOpen ? "grid" : "none",
           alignItems: "center",
           justifyItems: "center"

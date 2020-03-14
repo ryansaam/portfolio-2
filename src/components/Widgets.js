@@ -8,7 +8,7 @@ import { Calendar } from '../calendar'
 const Widgets = props => {
   return (
     <WidgetsWrap>
-      <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >
+      <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "60px"}} >
         <Container>
           <div style={{display: "grid", gridGap: "20px"}}>
             <H1 center em={window.innerWidth > 525 ? 2.8 : 1.6}>Calendar Widgets</H1>

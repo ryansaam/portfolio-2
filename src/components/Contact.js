@@ -33,7 +33,7 @@ const Contact = props => {
           </div>
           <div>
             <Info>Email: ryansam.inquiries@gmail.com</Info>
-            <Info>Phone: (832)642-5068</Info>
+            <Info>Phone: (832) 642 5068</Info>
           </div>
         </Connect>
       </Content>

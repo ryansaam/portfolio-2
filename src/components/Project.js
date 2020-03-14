@@ -15,7 +15,7 @@ const Project = props => {
   useEffect(() => {
     const offset = containerRef.current.getBoundingClientRect()
     if (reject) {
-      if ((offset.top - 80) + offset.height <= offset.height) {
+      if ((offset.top - 60) + offset.height <= offset.height) {
         setTimeout(() => { videoRef.current.play()}, 2000)
         setReject(!reject)
       }
@@ -24,7 +24,7 @@ const Project = props => {
 
   return (
     <ProjectWrap>
-      <Slide ref={containerRef} style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >
+      <Slide ref={containerRef} style={{height: "calc(100vh - 60px)", position: "sticky", top: "60px"}} >
         <Container>
           <H1 style={{marginBottom: "20px", textAlign: "center"}} em={2.8}>Featured Project</H1>
           <img alt={"logo for project"} style={{width: "200px"}} src={logo} />

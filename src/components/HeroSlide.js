@@ -11,13 +11,14 @@ const HeroWrap = styled.section`
   z-index: 10;
 `
 const Sticky = styled.div`
+  background-color: black;
   background-image: url(${water});
   background-size: cover;
   background-position: center bottom;
   width: 100%;
   height: calc(100vh - 60px);
   position: sticky;
-  top: 0px;
+  top: 60px;
 `
 const BioWrap = styled.div`
   width: 100%;

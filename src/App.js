@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import _ from 'lodash'
+import disableScroll from 'disable-scroll'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { updateScroll } from './actions.js'
@@ -19,12 +20,7 @@ import resume from './assets/resume/tech-resume.pdf'
 import downloadIcon from './assets/vectors/download-icon.svg'
 
 function App() {
-  const scrollRef = useRef(null)
   const scrollY = useSelector(state => state.scrollY)
-
-  const handleScroll = _.throttle(() => {
-    store.dispatch(updateScroll(scrollRef.current.scrollTop))
-  }, 50)
 
   useEffect(() => {
     window.addEventListener("resize", _.throttle(() => {
@@ -32,9 +28,14 @@ function App() {
       let vh = window.innerHeight * 0.01;
       // Then we set the value in the --vh custom property to the root of the document
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-      store.dispatch(updateScroll(scrollRef.current.scrollTop))
     }, 1000))
-    return () => window.removeEventListener("resize")
+    window.addEventListener("scroll",() => {
+      store.dispatch(updateScroll(window.scrollY))
+    })
+    return () => {
+      window.removeEventListener("resize")
+      window.removeEventListener("scroll")
+    }
   }, [])
 
   return (
@@ -50,26 +51,24 @@ function App() {
           <Button>Contact</Button>
         </NavItem>
       </ContactBar>
-      <Main>
-        <ScrollWrap ref={scrollRef} onScroll={handleScroll}>
-          <div style={{ hieght: "100%", position: "relative", zIndex: "5"}}>
-            <Hero scrollPos={scrollY} />
-          </div>
-          <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "4"}}>
-            <Project />
-          </div>
-          <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "3"}}>
-            <Widgets />
-          </div>
-          <div style={{height: "100%", position: "sticky", top: "0px", overflow: "visible", zIndex: "2"}}>
-            <DesignTitle />
-          </div>
-          <DesignContent />
-          <Work />
-          <Skills />
-          <Contact />
-        </ScrollWrap>
-      </Main>
+      <div style={{hieght: "100%", position: "relative", zIndex: "5"}}>
+        <Hero scrollPos={scrollY} />
+      </div>
+      <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "4"}}>
+        <Project />
+      </div>
+      <div style={{height: "100%", position: "relative", overflow: "visible", zIndex: "3"}}>
+        <Widgets />
+      </div>
+      <div style={{height: "100%", position: "sticky", top: "0px", overflow: "visible", zIndex: "2"}}>
+        <DesignTitle />
+      </div>
+      <div>
+        <DesignContent />
+        <Work />
+        <Skills />
+        <Contact />
+      </div>
       <ScreenWarning />
     </div>
   );
@@ -77,6 +76,10 @@ function App() {
 
 const ScreenWarning = props => {
   const [toggle, setToggle] = useState(0b1)
+  if (toggle && window.innerWidth < 1030)
+    disableScroll.on()
+  else
+    disableScroll.off()
   return (
     <ScreenWarningWrap style={{display: (toggle && window.innerWidth < 1030) ? "grid": "none"}}>
       <Prompt>
@@ -102,7 +105,7 @@ const ScreenWarningWrap = styled.div`
   box-sizing: border-box;
   position: absolute;
   top: 0px;
-  z-index: 10;
+  z-index: 22;
   display: grid;
   align-items: center;
   justify-items: center;
@@ -141,6 +144,9 @@ const ContactBar = styled.div`
   height: 60px;
   padding-right: 120px;
   box-sizing: border-box;
+  position: fixed;
+  top: 0px;
+  z-index: 20;
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -148,17 +154,6 @@ const ContactBar = styled.div`
     grid-template-columns: auto auto;
     padding-right: 0px;
   }
-`
-const Main = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`
-const ScrollWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  overflow-y: scroll;
 `
 const NavItem = styled.a`
   justify-self: right;

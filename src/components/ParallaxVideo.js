@@ -80,7 +80,8 @@ const scrollAnimation = (playback) => {
       // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
       then = now - (elapsed % fpsInterval);
       // render
-      video.currentTime = (scrollY - state.parallaxOffset) / playbackConst
+      let time = Math.round((scrollY - state.parallaxOffset) / playbackConst * 100) / 100
+      video.currentTime = isFinite(time) ? time : 0
     }
   }
   
@@ -105,7 +106,7 @@ const VideoWrap = styles.div`
   box-sizing: border-box;
   background-color: #000;
   position: sticky;
-  top: 0px;
+  top: 60px;
   line-height: 1;
   :-moz-full-screen {
     position: absolute;
