@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
+import _ from "lodash"
 import styles from 'styled-components'
 import store from '../store.js'
 import { updateParallaxOffset } from '../actions.js'
@@ -24,6 +25,12 @@ const ParallaxVideo = props => {
     else
       videoRef.current.currentTime = 8
   },[playbackConst])
+  useEffect(() => {
+    window.addEventListener("resize", _.throttle(() => {
+      updateHeight()
+    }, 1000))
+    return () => window.removeEventListener("resize")
+  }, [])
 
   return (
     <div

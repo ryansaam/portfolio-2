@@ -82,13 +82,13 @@ const DesignContent = props => {
             ref={designContainerRef} translate={ transalteAmount }
           >
             <DesignItem padding={"0px"} desc={desc1}>
-              <Video muted loop ref={bbookRef} src={bbook} />
+              <Video muted loop playsInline ref={bbookRef} src={bbook} />
             </DesignItem>
             <DesignItem desc={desc2}>
-              <Video muted loop ref={latheRef} src={lathe} />
+              <Video muted loop playsInline ref={latheRef} src={lathe} />
             </DesignItem>
             <DesignItem desc={desc3}>
-              <Video muted loop ref={cpanelRef} src={cpanel} />
+              <Video muted loop playsInline ref={cpanelRef} src={cpanel} />
             </DesignItem>
             <DesignItem desc={desc4}>
               <Image alt={desc4} src={zsites1} />

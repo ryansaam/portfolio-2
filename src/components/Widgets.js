@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { Slide, H1, Button } from './Styled.js'
@@ -6,7 +6,6 @@ import { Scheduler, MyForm, colorTheme } from '../scheduler'
 import { Calendar } from '../calendar'
 
 const Widgets = props => {
-
   return (
     <WidgetsWrap>
       <Slide style={{height: "calc(100vh - 60px)", position: "sticky", top: "0px"}} >

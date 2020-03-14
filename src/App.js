@@ -28,13 +28,17 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("resize", _.throttle(() => {
-      window.location.reload()
+      // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+      let vh = window.innerHeight * 0.01;
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      store.dispatch(updateScroll(scrollRef.current.scrollTop))
     }, 1000))
     return () => window.removeEventListener("resize")
   }, [])
 
   return (
-    <div className="App">
+    <div style={{height: `calc(,1vh)`}} className="App">
       <ContactBar>
         <NavItem href={resume} download>
           <Button>
@@ -92,8 +96,8 @@ const ScreenWarning = props => {
 }
 const ScreenWarningWrap = styled.div`
   background-color: rgba(0,0,0,0.8);
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: 20px;
   box-sizing: border-box;
   position: absolute;
