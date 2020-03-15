@@ -1,6 +1,7 @@
 
 ## Description
 My current personal portfolio - March 2020
+
 Checkout the live site [aboutryansam.com](https://www.aboutryansam.com)
 
 ### `npm start`
@@ -21,4 +22,5 @@ COPY --from=build-stage /nginx.conf /etc/nginx/conf.d/default.conf
 ```
 
 `Docker build --tag aboutryansam .`
+
 `Docker run -d -p 80:80 --name aboutryansam aboutryansam`
