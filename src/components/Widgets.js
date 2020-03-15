@@ -54,18 +54,19 @@ const Widgets = props => {
 }
 
 const text = `
-  My first project. The idea came from when I worked at Amazon as a Packer. They had
-  this calendar in the employee portal that you could use to schedule PTO. After a month
-  of learning JavaScript it came to me that I should build one myself. Calendars, exciting right?
-  These are actually the third iteration of them. At first I used the old popular JavaScript
-  library JQuery. My function that generated the month's corisponding dates was over 100 lines
-  long with O(n^2) time complexity. Then I choose to learn React.js. With my exeprience by then
-  I was able to shorten that function from 100+ lines to just 35 with an O(n) time complexity.
-  The third iteration came about when the React team released React Hooks. So I rewrote the
-  entire codebase using functional components and hooks. Try them out yourself by clinking on the
-  arrows. The one on the left is just a normal calendar but the one on the right is a scheduler.
-  Try clicking on the dates, you will see a form. Don't worry your info doesn't get sent anywhere,
-  but you will see a promt on the screen that shows you what you entered for testing.
+  My first project. The idea came from when I worked at Amazon as a Packer. They had this 
+  calendar in the employee portal that you could use to schedule PTO. After a month of 
+  learning JavaScript it came to me that I should build one myself. Calendars, exciting 
+  right? These are actually the third iteration of them. At first I used the old popular 
+  JavaScript library JQuery. My function that generated the month's corresponding dates 
+  was over 100 lines long with O(n^2) time complexity. Then I choose to learn React.js. 
+  With my experience by then I was able to shorten that function from 100+ lines to just 35 
+  with an O(n) time complexity. The third iteration came about when the React team released 
+  React Hooks. So I rewrote the entire codebase using functional components and hooks. Try 
+  them out yourself by clicking on the arrows. The one on the left is just a normal calendar 
+  but the one on the right is a scheduler. Try clicking on the dates, you will see a form. 
+  Don't worry your info doesn't get sent anywhere, but you will see a prompt on the screen 
+  that shows you what you entered for testing.
 `
 
 const WidgetsWrap = styled.div`

@@ -138,8 +138,8 @@ const DesignItem = props => {
   )
 }
 
-const desc1 = "A startup idea I had. I used Adode XD to build a demo"
-const desc2 = "A propasal atempt to save mini-lathe.com that was discused with the orginal owner over email. Prototyped using React.js"
+const desc1 = "A startup idea I had. I used Adobe XD to build a demo"
+const desc2 = "A propasal atempt to save mini-lathe.com that was discussed with the original owner over email. Prototyped using React.js"
 const desc3 = "My first attempt trying Angular 9"
 const desc4 = "A design for a Houston company I made while working at Atomar using Sketch. Here is the employee login"
 const desc5 = "A daily inspection report"

@@ -66,8 +66,8 @@ quickly access data.
 `
 
 const p4 = `
-Over all though I think I have found the most enjoyment working close to
-the machine. Because my focus on the web, I don't allot as much time as I
+Overall though I think I have found the most enjoyment working close to
+the machine. Because my focus is on the web, I don't allot as much time as I
 would like to learn embedded systems. In my later career though I hope
 to work on these tiny computers, or maybe large depending on the application.
 And maybe one day I will write the software that lives on a rocket!

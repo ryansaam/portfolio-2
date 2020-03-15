@@ -41,21 +41,21 @@ const Work = props => {
 const desc1 = `
 Atomar is a Houston based company that contracts its services to
 businesses in the Houston area. Because of its small size, I was given
-many responsibilties to help the team and our clients.
+many responsibilities to help the team and our clients.
 `
 const desc2 = `
 Generally I worked on business saas applications for two companies in Houston. 
 Mostly I redesigned their layouts and looked over them to find bugs. For bigger
-projects I sometimes had to connect APIs or design a project from scrach.
+projects I sometimes had to connect APIs or design a project from scratch.
 `
 const desc3 = `
 While managing I communicated what tasks to complete with our developers in India. 
-Every morning I formed scrum meetings to track progess on our projects. By tracking 
-our teams progress I ensured deadlines were being met. I also demoed to clients 
+Every morning I formed scrum meetings to track progress on our projects. By tracking 
+our team's progress I ensured deadlines were being met. I also demoed to clients 
 their applications and updated them on our progress keeping them happy. 
 `
 const desc4 = `
-With my Adobe software (Photoshop, Priemere Pro, XD) and Sketch experience, I designed 
+With my Adobe software (Photoshop, Premiere Pro, XD) and Sketch experience, I designed 
 the mockups for new projects or feature requests (see some above). Then I would explain
 the designs to the team showing key features and how they worked.
 `
