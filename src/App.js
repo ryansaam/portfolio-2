@@ -63,8 +63,8 @@ function App() {
       <div style={{height: "100%", position: "sticky", top: "0px", overflow: "visible", zIndex: "2"}}>
         <DesignTitle />
       </div>
+      <DesignContent />
       <div>
-        <DesignContent />
         <Work />
         <Skills />
         <Contact />
